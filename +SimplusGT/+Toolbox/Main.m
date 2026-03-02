@@ -72,6 +72,7 @@ Zbase = Vbase/Ibase;     % (Ohm), base impedance
 Ybase = 1/Zbase;         % (S), base admittance
 Wbase = Fbase*2*pi;      % (rad/s), base angular frequency
 Advance = UserDataStruct.Advance;
+DiscreMethod = Advance.DiscretizationMethod;
 % Notes:
 % The base values would be used in simulations, and should not be deleted
 % here.
@@ -159,7 +160,7 @@ for i = 1:NumApparatus
     % The following data may not used in the script, but will be used in
     % simulations. So, do not delete!
     [ObjGmCell{i},GmDssCell{i},ApparatusPara{i},ApparatusEqui{i},ApparatusDiscreDamping{i},OtherInputs{i},ApparatusStateStr{i},ApparatusInputStr{i},ApparatusOutputStr{i}] = ...
-        SimplusGT.Toolbox.ApparatusModelCreate(ApparatusBus{i},ApparatusType{i},ApparatusPowerFlow{i},Para{i},Ts,ListBusNew);
+        SimplusGT.Toolbox.ApparatusModelCreate(ApparatusBus{i},ApparatusType{i},ApparatusPowerFlow{i},Para{i},Ts,ListBusNew,DiscreMethod);
     x_e{i} = ApparatusEqui{i}{1};
     u_e{i} = ApparatusEqui{i}{2};
 end
