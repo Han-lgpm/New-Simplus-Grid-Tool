@@ -404,7 +404,7 @@ methods(Access = protected)
                      obj.x = obj.x + delta_x;
                 end
                 
-            % ### Case 4 : Euler plus dissipation 
+            % ### Case 4 : Euler Plus Dissipation 
             case 4
                 delta_x = obj.Ts * inv(eye(length(obj.Ak))-obj.Ak*obj.Ts/2)*obj.StateSpaceEqu(obj, obj.x, u, 1);
                 obj.x = delta_x + obj.x;
@@ -461,7 +461,7 @@ methods(Access = protected)
                         y = obj.StateSpaceEqu(obj,obj.x,u,2);
                     end                  
                 end 
-           % ### Case 4 : Euler plus dissipation 
+           % ### Case 4 : Euler Plus Dissipation 
            % It is equivalent to trapezoidal tule.
             case 4
                 if obj.DirectFeedthrough

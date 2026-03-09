@@ -25,7 +25,7 @@
 
 %% function
 function [GmObj,GmDSS,ApparatusPara,ApparatusEqui,DiscreDampingResistor,OtherInputs,StateStr,InputStr,OutputStr] ...
-        = ApparatusModelCreate(ApparatusBus,Type,PowerFlow,Para,Ts,ListBus,DiscreMethod) 
+        = ApparatusModelCreate(ApparatusBus,Type,PowerFlow,Para,Ts,ListBus,Advance) 
 
 %% Create an object
 SwInOutFlag = 0;   % Default: do not need to switch input and output
@@ -249,7 +249,7 @@ end
 Apparatus.ApparatusType = Type;                           % Apparatus type
 Apparatus.Ts = Ts;                                     % Samping period
 Apparatus.PowerFlow = PowerFlow;                       % Power flow data
-Apparatus.DiscreMethod = DiscreMethod;                 % Discrete method
+Apparatus.DiscreMethod = Advance.DiscretizationMethod;    % Discrete method
 Apparatus.SetString(Apparatus);                           % Set strings automatically
 Apparatus.SetEquilibrium(Apparatus);                      % Calculate the equilibrium
 [x_e,u_e,y_e,xi] = Apparatus.GetEquilibrium(Apparatus);   % Get the equilibrium
